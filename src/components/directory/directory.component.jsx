@@ -1,47 +1,34 @@
 import React from 'react';
-import './homepage.styles.scss';
+import './directory.styles.scss';
+import MenuItem from '../menu-item/menu-item.component'
+class Directory extends React.Component {
+    constructor() {
+        super();
 
-const HomePage =()=>(
+        this.state = {
+            sections: [
+                {id: 1, title: "Hats", imageUrl: "https://i.ibb.co/cvpntL1/hats.png"},
+                {id: 2, title: "Jackets", imageUrl: "https://i.ibb.co/px2tCc3/jackets.png"},
+                {id: 3, title: "Sneakers", imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png"},
+                {id: 4, title: "Womens", imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",size:'large'},
+                {id: 5, title: "Men", imageUrl: "https://i.ibb.co/R70vBrQ/men.png",size:'large'}
+            ]
+        }
+    }
 
-    <div className='homepage'>
-        <div className='directory-menu'>
-            <div className='menu-item'>
-                <div className='content'>
-                    <h1 className='title'>HATS</h1>
-                    <span className='sub-title'>Shop Now</span>
+    render() {
+        return (
 
-                </div>
+            <div className='directory-menu'>{
+                this.state.sections.map(({title, imageUrl, id,size}) =>
+                    <MenuItem key={id} title={title} imageUrl={imageUrl} size={size}/>
+                )
+            }
             </div>
-            <div className='menu-item'>
-                <div className='content'>
-                    <h1 className='title'>HATS</h1>
-                    <span className='sub-title'>Shop Now</span>
-
-                </div>
-            </div>
-            <div className='menu-item'>
-                <div className='content'>
-                    <h1 className='title'>HATS</h1>
-                    <span className='sub-title'>Shop Now</span>
-
-                </div>
-            </div><div className='menu-item'>
-                <div className='content'>
-                    <h1 className='title'>HATS</h1>
-                    <span className='sub-title'>Shop Now</span>
-
-                </div>
-            </div><div className='menu-item'>
-                <div className='content'>
-                    <h1 className='title'>HATS</h1>
-                    <span className='sub-title'>Shop Now</span>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-    )
+        )
+    }
+}
+export default Directory;
 
 
-export default HomePage
+
